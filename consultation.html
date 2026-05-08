@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Consultation | Patience Financial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --deep:        #1c3d2e;
+      --deep-2:      #132b1f;
+      --mid:         #2d5a42;
+      --accent:      #3d7a58;
+      --sage:        #a5c09c;
+      --sage-light:  #d6eacf;
+      --cream:       #f4f0e8;
+      --off-white:   #faf9f6;
+      --white:       #ffffff;
+      --text:        #1a2820;
+      --text-mid:    #4a6354;
+      --text-light:  #7a9484;
+      --radius:      12px;
+      --trans:       0.28s ease;
+      --font:        'Inter', system-ui, -apple-system, sans-serif;
+      --font-serif:  'Playfair Display', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ===== NAVBAR ===== */
+    #navbar {
+      position: fixed;
+      top: 1.1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: rgba(28, 61, 46, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(165, 192, 156, 0.22);
+      border-radius: 999px;
+      padding: 0.65rem 1.5rem 0.65rem 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    }
+
+    .nav-brand {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      transition: color var(--trans);
+    }
+
+    .nav-links a:hover { color: var(--sage); }
+
+    .nav-cta {
+      display: inline-block;
+      padding: 0.45rem 1.1rem;
+      background: #e8c87a;
+      color: var(--deep-2);
+      font-family: var(--font);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 999px;
+      white-space: nowrap;
+      letter-spacing: 0.2px;
+      transition: background var(--trans), transform var(--trans);
+      flex-shrink: 0;
+    }
+
+    .nav-cta:hover {
+      background: #f0d690;
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.35rem;
+      cursor: pointer;
+      padding: 0.1rem 0.3rem;
+      line-height: 1;
+    }
+
+    /* ===== PAGE ===== */
+    .page-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 9rem 1.5rem 5rem;
+    }
+
+    .page-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .page-wrap h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      font-weight: 800;
+      color: var(--deep);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .page-intro {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ===== FORM ===== */
+    .consult-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 2.25rem;
+      border: 1px solid var(--sage-light);
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .form-row label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.2px;
+    }
+
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      padding: 0.75rem 0.95rem;
+      border: 1.5px solid #c4d9bc;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 0.93rem;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+      transition: border-color var(--trans), box-shadow var(--trans);
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-row select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234a6354' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .form-row input:focus,
+    .form-row select:focus,
+    .form-row textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(61, 122, 87, 0.13);
+    }
+
+    .form-row textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .form-row input::placeholder,
+    .form-row textarea::placeholder {
+      color: var(--text-light);
+    }
+
+    .form-row-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .btn-submit {
+      align-self: stretch;
+      padding: 1rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: var(--font);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background var(--trans), transform var(--trans);
+      margin-top: 0.5rem;
+      letter-spacing: 0.2px;
+    }
+
+    .btn-submit:hover {
+      background: var(--mid);
+      transform: translateY(-2px);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    /* ===== SUCCESS STATE ===== */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--cream);
+      border-radius: 16px;
+      border: 1px solid var(--sage-light);
+    }
+
+    .success-msg .check {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .success-msg h2 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--deep);
+      margin-bottom: 0.75rem;
+    }
+
+    .success-msg p {
+      color: var(--text-mid);
+      margin-bottom: 1.5rem;
+    }
+
+    .success-msg a {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: background var(--trans);
+    }
+
+    .success-msg a:hover { background: var(--mid); }
+
+    /* ===== FOOTER ===== */
+    #footer {
+      background: var(--deep-2);
+      color: rgba(255,255,255,0.62);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-details {
+      font-size: 0.86rem;
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+
+    .footer-details a {
+      color: rgba(255,255,255,0.58);
+      text-decoration: none;
+      transition: color var(--trans);
+    }
+
+    .footer-details a:hover { color: var(--sage); }
+
+    .footer-copy {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.33);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 680px) {
+      #navbar {
+        border-radius: 14px;
+        top: 0.75rem;
+        padding: 0.6rem 1.1rem;
+        gap: 0.75rem;
+        max-width: calc(100% - 1.5rem);
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 4.25rem;
+        left: 0.75rem;
+        right: 0.75rem;
+        background: rgba(19, 43, 31, 0.97);
+        backdrop-filter: blur(16px);
+        border-radius: 14px;
+        padding: 1.25rem 1.5rem;
+        gap: 1.1rem;
+        border: 1px solid rgba(165, 192, 156, 0.15);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: block; }
+
+      .form-row-grid { grid-template-columns: 1fr; }
+      .consult-form { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav id="navbar" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand">Patience Financial</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#testimonials">Testimonials</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a href="consultation.html" class="nav-cta">Book a Consultation</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+  </nav>
+
+  <!-- ====== MAIN ====== -->
+  <main class="page-wrap">
+    <p class="page-eyebrow">Get Started</p>
+    <h1>Book a Free Consultation</h1>
+    <p class="page-intro">
+      Tell us a bit about yourself and your business. After you submit, you'll be taken straight to Amos's calendar to pick a time that works for you.
+    </p>
+
+    <!-- Form -->
+    <form class="consult-form" id="consultForm" novalidate>
+
+      <div class="form-row-grid">
+        <div class="form-row">
+          <label for="c-name">Your Name *</label>
+          <input type="text" id="c-name" name="name" placeholder="Jane Smith" autocomplete="name" required />
+        </div>
+        <div class="form-row">
+          <label for="c-biz">Business Name *</label>
+          <input type="text" id="c-biz" name="business_name" placeholder="Acme Co." required />
+        </div>
+      </div>
+
+      <div class="form-row-grid">
+        <div class="form-row">
+          <label for="c-email">Email Address *</label>
+          <input type="email" id="c-email" name="email" placeholder="jane@example.com" autocomplete="email" required />
+        </div>
+        <div class="form-row">
+          <label for="c-website">Website</label>
+          <input type="url" id="c-website" name="website" placeholder="https://yoursite.com" autocomplete="url" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label for="c-industry">Industry *</label>
+        <select id="c-industry" name="industry" required>
+          <option value="" disabled selected>Select your industry…</option>
+          <option>Nonprofit</option>
+          <option>Professional Services</option>
+          <option>Retail</option>
+          <option>Healthcare</option>
+          <option>Technology</option>
+          <option>Food &amp; Beverage</option>
+          <option>Construction &amp; Trades</option>
+          <option>Real Estate</option>
+          <option>Education</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="c-concerns">What are your main financial concerns or goals? *</label>
+        <textarea id="c-concerns" name="concerns" placeholder="E.g. I need help cleaning up my books, setting up a budget, understanding my cash flow…" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submitBtn">
+        Send &amp; Schedule My Consultation →
+      </button>
+      <p class="form-note">Submitting opens your email client with your info pre-filled — just hit Send, then you'll be taken to Amos's calendar.</p>
+    </form>
+
+    <!-- Success fallback (shown if JS redirect is needed) -->
+    <div class="success-msg" id="successMsg">
+      <div class="check">✅</div>
+      <h2>You're all set!</h2>
+      <p>Your info has been sent to Amos. Now pick a time that works for you.</p>
+      <a href="https://calendly.com/patience-financial/mtg" target="_blank" rel="noopener">Choose a Time on Calendly →</a>
+    </div>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer id="footer">
+    <div class="footer-brand">Patience Financial</div>
+    <div class="footer-details">
+      Amos Hausman-Rogers<br>
+      <a href="mailto:ahr.accomptant@gmail.com">ahr.accomptant@gmail.com</a>
+      &nbsp;&middot;&nbsp;
+      <a href="tel:+19254940401">925-494-0401</a>
+    </div>
+    <div class="footer-copy">&copy; 2025 Patience Financial &middot; Amos Hausman-Rogers</div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => links.classList.remove('open'))
+    );
+
+    // Form submit → mailto + Calendly redirect
+    document.getElementById('consultForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name     = document.getElementById('c-name').value.trim();
+      const biz      = document.getElementById('c-biz').value.trim();
+      const email    = document.getElementById('c-email').value.trim();
+      const website  = document.getElementById('c-website').value.trim();
+      const industry = document.getElementById('c-industry').value;
+      const concerns = document.getElementById('c-concerns').value.trim();
+
+      if (!name || !biz || !email || !industry || !concerns) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      const body = [
+        'New Consultation Request — Patience Financial',
+        '================================================',
+        '',
+        'Name:          ' + name,
+        'Business:      ' + biz,
+        'Email:         ' + email,
+        'Website:       ' + (website || 'Not provided'),
+        'Industry:      ' + industry,
+        '',
+        'Concerns / Goals:',
+        concerns,
+      ].join('\n');
+
+      const mailtoURL = 'mailto:ahr.accomptant@gmail.com'
+        + '?subject=' + encodeURIComponent('New Consultation Request — ' + name + ' (' + biz + ')')
+        + '&body='    + encodeURIComponent(body);
+
+      // Open mail client
+      window.location.href = mailtoURL;
+
+      // Show success message and redirect to Calendly after a short delay
+      document.getElementById('consultForm').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+
+      setTimeout(function () {
+        window.location.href = 'https://calendly.com/patience-financial/mtg';
+      }, 2500);
+    });
+  </script>
+
+</body>
+</html>
