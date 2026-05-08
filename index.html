@@ -222,6 +222,25 @@
       margin: 0 auto;
     }
 
+    .hero-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.85rem 2.2rem;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font);
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 999px;
+      transition: background var(--trans), transform var(--trans);
+    }
+
+    .hero-btn:hover {
+      background: var(--mid);
+      transform: translateY(-2px);
+    }
+
     /* ===== QUOTES ===== */
     #quotes {
       background: var(--deep-2);
@@ -342,49 +361,41 @@
     .svc-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0;
-      margin-top: 0.5rem;
-      border-top: 1px solid var(--sage-light);
+      gap: 1.25rem;
+      margin-top: 2rem;
     }
 
     .svc-item {
       display: flex;
       align-items: flex-start;
-      gap: 1rem;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--sage-light);
-    }
-
-    .svc-item:nth-child(odd) {
-      padding-right: 3rem;
-      border-right: 1px solid var(--sage-light);
-    }
-
-    .svc-item:nth-child(even) {
-      padding-left: 3rem;
+      gap: 1.1rem;
+      padding: 1.75rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--sage-light);
     }
 
     .svc-dot {
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       background: var(--accent);
       border-radius: 50%;
       flex-shrink: 0;
-      margin-top: 0.42rem;
+      margin-top: 0.5rem;
     }
 
     .svc-item h3 {
-      font-size: 0.97rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--deep);
       line-height: 1.35;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
     }
 
     .svc-item p {
-      font-size: 0.875rem;
+      font-size: 0.925rem;
       color: var(--text-mid);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     /* ===== HOW I WORK ===== */
@@ -631,8 +642,6 @@
       section { padding: 4rem 1.25rem; }
 
       .svc-list { grid-template-columns: 1fr; }
-      .svc-item:nth-child(odd) { padding-right: 0; border-right: none; }
-      .svc-item:nth-child(even) { padding-left: 0; }
     }
   </style>
 </head>
@@ -672,6 +681,7 @@
       <p class="hero-intro">
         I partner with owners, executive directors, and nonprofit leaders to bring clarity, structure, and strategy to their finances, so they can focus on the work that matters most.
       </p>
+      <a class="hero-btn" href="YOUR_CALENDLY_LINK_HERE" target="_blank" rel="noopener">Book a Call</a>
     </div>
   </section>
 
@@ -715,8 +725,7 @@ makes perfect a large work, like the universe.</blockquote>
   <!-- ====== SERVICES ====== -->
   <section id="services">
     <div class="container">
-      <p class="section-eyebrow fade">Services</p>
-      <h2 class="fade">How I Can Help</h2>
+      <h2 class="fade">Services</h2>
       <div class="svc-list">
 
         <div class="svc-item fade">
