@@ -355,7 +355,7 @@
 
     .about-layout {
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 240px 1fr;
       gap: 4.5rem;
       align-items: center;
     }
@@ -374,6 +374,13 @@
       height: 100%;
       object-fit: cover;
       object-position: center top;
+    }
+
+    .about-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--deep);
+      margin: -1rem 0 1.5rem;
     }
 
     /* ===== SERVICES ===== */
@@ -427,9 +434,10 @@
 
     .testi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: 1fr;
       gap: 1.1rem;
-      margin-top: 0.5rem;
+      margin: 0.5rem auto 0;
+      max-width: 760px;
     }
 
     .testi-card {
@@ -538,7 +546,7 @@
     @media (max-width: 820px) {
       .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
       .about-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-photo { max-width: 240px; aspect-ratio: 1; border-radius: 50%; margin: 0 auto; }
+      .about-photo { max-width: 210px; aspect-ratio: 1; border-radius: 50%; margin: 0 auto; }
     }
 
     @media (max-width: 680px) {
@@ -604,27 +612,11 @@
 
     <div class="hero-content">
       <h1>Patience Financial</h1>
-      <p class="hero-tagline">CFO Advisory &amp; Bookkeeping for Small Businesses and Nonprofits</p>
+      <p class="hero-tagline">CFO, Advisory, &amp; Bookkeeping for Small Businesses and Nonprofits</p>
       <p class="hero-intro">
-        I partner with owners, executive directors, and nonprofit leaders to bring clarity, structure, and strategy to their finances, so they can focus on the work that matters most.
+        We partner with owners, executive directors, and nonprofit leaders to bring clarity, structure, and strategy to their finances, so they can focus on the work that matters most.
       </p>
       <a class="hero-btn" href="https://calendly.com/patience-financial/mtg" target="_blank" rel="noopener">Book a Call</a>
-    </div>
-  </section>
-
-  <!-- ====== QUOTES ====== -->
-  <section id="quotes">
-    <div class="quotes-inner">
-
-      <div class="q-item q-featured fade">
-        <div class="q-deco">&ldquo;</div>
-        <blockquote>A new moon teaches gradualness
-and deliberation and how one gives birth
-to oneself slowly. Patience with small details
-makes perfect a large work, like the universe.</blockquote>
-        <cite>Rumi</cite>
-      </div>
-
     </div>
   </section>
 
@@ -636,8 +628,9 @@ makes perfect a large work, like the universe.</blockquote>
           <img src="images/Amos.jpeg" alt="Amos Hausman-Rogers" />
         </div>
         <div class="about-text">
-          <p class="section-eyebrow">About</p>
+          <p class="section-eyebrow">About Patience Financial</p>
           <h2>Built on Experience. Grounded in Care.</h2>
+          <p class="about-title">Amos Hausman-Rogers, CEO</p>
           <ul class="bullet-list">
             <li>10+ years of experience working closely with small businesses and nonprofits</li>
             <li>Deep expertise in QuickBooks Online, budgeting, and organizational financial structure</li>
@@ -746,19 +739,33 @@ makes perfect a large work, like the universe.</blockquote>
 
         <div class="testi-card fade">
           <div class="quote-glyph">"</div>
-          <blockquote>I've worked with Amos for over two years, and I couldn't be happier with his professionalism, knowledge, and attention to detail. He has taken responsibility for organizing and implementing sound financial systems and practices, which has given me tremendous peace of mind and time to focus on other aspects of my business. He is reliable, organized, proactive, and someone I highly recommend to anyone looking for an accountant they can truly depend on.</blockquote>
-          <div class="testi-name">Terri F.</div>
-          <div class="testi-role">Founder &amp; CEO, ARTfuel Studio</div>
+          <blockquote>I have been working with Amos at Patience Financial for many years, and he has been a huge asset to our business. He is responsive, detail-oriented, and consistently keeps our books organized and accurate, allowing us to focus on running and growing the company with confidence. I can't recommend him highly enough.</blockquote>
+          <div class="testi-name">Ori Skloot</div>
+          <div class="testi-role">Executive Director, Advanced Home Energy</div>
         </div>
 
         <div class="testi-card fade">
           <div class="quote-glyph">"</div>
-          <blockquote>I have been working with Amos at Patience Financial for many years, and he has been a huge asset to our business. He is responsive, detail-oriented, and consistently keeps our books organized and accurate, allowing us to focus on running and growing the company with confidence. I can't recommend him highly enough.</blockquote>
-          <div class="testi-name">Ori S.</div>
-          <div class="testi-role">Executive Director, Advanced Home Energy</div>
+          <blockquote>I've worked with Amos for over two years, and I couldn't be happier with his professionalism, knowledge, and attention to detail. He has taken responsibility for organizing and implementing sound financial systems and practices, which has given me tremendous peace of mind and time to focus on other aspects of my business. He is reliable, organized, proactive, and someone I highly recommend to anyone looking for an accountant they can truly depend on.</blockquote>
+          <div class="testi-name">Terri Froelich</div>
+          <div class="testi-role">Founder &amp; CEO, ARTfuel Studio</div>
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ====== QUOTES ====== -->
+  <section id="quotes">
+    <div class="quotes-inner">
+
+      <div class="q-item q-featured fade">
+        <div class="q-deco">&ldquo;</div>
+        <blockquote>Patience with small details
+makes perfect a large work, like the universe.</blockquote>
+        <cite>Rumi</cite>
+      </div>
+
     </div>
   </section>
 
@@ -766,11 +773,10 @@ makes perfect a large work, like the universe.</blockquote>
   <footer id="footer">
     <div class="footer-brand">Patience Financial</div>
     <div class="footer-details">
-      Amos Hausman-Rogers<br>
       <a href="tel:+19254940401">925-494-0401</a>
     </div>
     <a href="https://calendly.com/patience-financial/mtg" class="nav-cta footer-cta" target="_blank" rel="noopener">Book a Consultation</a>
-    <div class="footer-copy">&copy; 2025 Patience Financial &middot; Amos Hausman-Rogers</div>
+    <div class="footer-copy">&copy; 2025 Patience Financial, Inc.</div>
   </footer>
 
   <script>
